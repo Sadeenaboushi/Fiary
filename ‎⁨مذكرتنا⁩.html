@@ -1,0 +1,146 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مذكرتنا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Tajawal:wght@500;800&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#e3b04b;--wine:#5b1530;--paper:#fff7f0;--ink:#4a0f2e;--rose:#e8467c;--teal:#2aa89a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]),:root[data-theme="dark"]{--wine:#5b1530}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100svh;background:radial-gradient(90% 50% at 50% 0%,#4a2b22,transparent 70%),#1d120e;color:var(--paper);font-family:'Tajawal',sans-serif;font-weight:500;overflow-x:hidden}
+[hidden]{display:none!important}
+#stage{perspective:1800px;max-width:460px;margin:0 auto;padding:20px 16px 44px}
+.cover{position:relative;min-height:min(80svh,640px);transform-origin:right center;transition:transform 1s cubic-bezier(.5,.05,.2,1);background:linear-gradient(160deg,#7a1c40,#3e0d22);border-radius:8px 24px 24px 8px;border:3px solid var(--gold);outline:6px solid #3e0d22;outline-offset:-14px;box-shadow:inset -14px 0 24px rgba(0,0,0,.4),0 20px 50px rgba(0,0,0,.6);padding:36px 26px;display:grid;gap:14px;justify-items:center;align-content:center;text-align:center;backface-visibility:hidden}
+.cover::before{content:"";position:absolute;top:-3px;left:44px;width:26px;height:78px;background:var(--rose);clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%)}
+.cover.open{transform:rotateY(180deg);pointer-events:none}
+.cover.shake{animation:sh .4s}
+@keyframes sh{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.cover h1{font:700 58px/1.2 'Aref Ruqaa',serif;margin:0;color:var(--gold);text-shadow:0 3px 0 rgba(0,0,0,.4)}
+.date{font:700 40px 'Aref Ruqaa',serif;color:#ffe29a;border-block:2px solid var(--gold);padding:6px 18px;letter-spacing:.05em}
+.tag{margin:0;font-size:17px;color:#f6d9b8;min-height:1.7em}
+#fm{display:grid;gap:10px;width:100%}
+input,textarea{font:500 18px 'Tajawal',sans-serif;border-radius:14px;padding:13px;width:100%}
+#pw{text-align:center;background:rgba(255,255,255,.1);border:2px solid var(--gold);color:var(--paper)}
+#pw::placeholder{color:#e8c9a0}
+.bt{font:800 18px 'Tajawal',sans-serif;background:var(--gold);color:#3e0d22;border:0;border-radius:99px;padding:13px 26px;cursor:pointer;box-shadow:0 5px 0 #a97a1f;touch-action:manipulation}
+.bt:active{transform:translateY(3px);box-shadow:0 2px 0 #a97a1f}
+.bt.r{background:var(--rose);color:#fff;box-shadow:0 5px 0 #a8264f}
+.lnk{background:none;border:0;color:#f6d9b8;font:500 15px 'Tajawal',sans-serif;text-decoration:underline;cursor:pointer}
+.bt:focus-visible,.lnk:focus-visible,input:focus-visible,textarea:focus-visible,.chip:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#er{min-height:1.5em;font-weight:800;color:#ffb3c6}
+#dv{display:grid;gap:12px;animation:in .8s ease-out}
+@keyframes in{from{opacity:0;transform:translateY(18px)}}
+.hd{text-align:center}.hd h2{font:700 40px 'Aref Ruqaa',serif;margin:0;color:var(--gold)}.hd div{font:700 24px 'Aref Ruqaa',serif;color:#ffe29a}
+.comp{background:var(--paper);color:var(--ink);border-radius:20px;padding:16px;display:grid;gap:10px;box-shadow:0 14px 34px rgba(0,0,0,.45)}
+.comp input,.comp textarea{background:#fff;border:2px solid #e8b9c6;color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font:800 15px 'Tajawal',sans-serif;border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:99px;padding:8px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+#cnt{font-weight:800;color:#ffe29a}
+.en{background:var(--paper);color:var(--ink);border-radius:16px;padding:14px;border-inline-start:8px solid var(--rose);box-shadow:0 8px 20px rgba(0,0,0,.35);background-image:repeating-linear-gradient(transparent 0 31px,rgba(232,70,124,.09) 31px 32px);animation:in .5s ease-out}
+.en.his{border-inline-start-color:var(--teal)}
+.eh{display:flex;gap:8px;align-items:center;margin-bottom:6px;flex-wrap:wrap}
+.eh b{font-size:17px}.eh small{margin-inline-start:auto;opacity:.65}
+.nw{background:#ffb703;color:#4a2c00;border-radius:99px;padding:2px 10px;font-weight:800;font-size:13px}
+.en p{margin:0;font-size:18px;line-height:1.8;white-space:pre-wrap;word-break:break-word}
+.emp{text-align:center;font-size:18px;opacity:.85}
+#nt{position:sticky;top:8px;z-index:5;background:#fff;color:var(--ink);font-weight:800;border-radius:14px;padding:12px 14px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.fl{position:fixed;bottom:-40px;font-size:30px;pointer-events:none;animation:fly 3.2s ease-out forwards;z-index:9}
+@keyframes fly{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+.stt{text-align:center;font-weight:800;font-size:15px;margin:0}.pres{text-align:center;font-size:15px;color:#ffe29a;margin:0;min-height:1.4em}
+@media (prefers-reduced-motion:reduce){.cover{transition-duration:.01s}.cover.shake{animation:none}#dv,.en{animation:none}.fl{display:none}}
+</style></head><body>
+<div id="stage">
+<section class="cover" id="cv"><h1>مذكرتنا</h1><div class="date" id="cd"></div><p class="tag" id="tg">بيني وبينك</p>
+<form id="fm" autocomplete="off"><input id="pw" type="password" placeholder="كلمة السر 🔑" aria-label="كلمة السر" autocomplete="off"><button class="bt" type="submit">افتح المذكرة</button></form>
+<div id="er" aria-live="polite"></div><button class="lnk" id="ht" type="button">تلميح</button></section>
+<main id="dv" hidden>
+<div class="hd"><h2>مذكرتنا</h2><div id="hd"></div></div>
+<div id="nt" hidden role="status"></div>
+<p class="stt" id="st" role="status"></p><p class="pres" id="pr"></p>
+<section class="comp" aria-label="إضافة للمذكرة">
+<input id="nm" placeholder="اسمك (مرة وحدة)" maxlength="20" hidden>
+<div class="chips" role="group" aria-label="نوع الملاحظة"></div>
+<textarea id="tx" maxlength="600" placeholder="اكتب ذكرى، أمنية، شي بيخصنا…"></textarea>
+<div class="row"><button class="bt r" id="add">أضف للمذكرة ✍️</button><button class="bt" id="qs">سؤال لنا 🎲</button></div></section>
+<div class="bar"><button class="bt r" id="jn" hidden>رابط الانضمام (مرة وحدة) 🔗</button><button class="bt" id="sd">نسخة احتياط 📤</button><span id="cnt"></span></div>
+<div id="fd"></div>
+</main></div>
+<script>
+(function(){
+var K='mud_v1',SALT='mudhakkira-v1',API='https://jsonblob.com/api/jsonBlob',$=function(i){return document.getElementById(i)},rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var enc=new TextEncoder(),dec=new TextDecoder(),q=new URLSearchParams(location.search);
+var DT=(q.get('d')||'19-10-2026').split('-').map(Number);if(DT.length!==3||DT.some(isNaN))DT=[19,10,2026];
+function ar(n){return String(n).replace(/\d/g,function(d){return'٠١٢٣٤٥٦٧٨٩'[d]})}
+function p2(n){return n<10?'0'+n:''+n}
+var DS=ar(p2(DT[0]))+' . '+ar(p2(DT[1]))+' . '+ar(DT[2]);$('cd').textContent=DS;$('hd').textContent=DS;
+var S;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}S=S||{};S.uid=S.uid||Math.random().toString(36).slice(2,10);S.entries=S.entries||[];S.me=S.me||'';S.chk=S.chk||'';S.bid=S.bid||'';S.pres=S.pres||{};
+function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+var INC=location.hash.indexOf('#d=')===0?location.hash.slice(3):'',INB=location.hash.indexOf('#b=')===0?location.hash.slice(3).replace(/[^a-zA-Z0-9_-]/g,''):'',PW='',NEW={},ty='m',wrong=0,busy=0;
+if(INC||INB)$('tg').textContent='وصلتك مذكرة 💌 اكتب كلمة السر وافتحها';
+var TY={m:'📝 ذكرى',w:'💭 أمنية',f:'😂 مضحك',l:'💌 كلمة'};
+function b64u(buf){var s='',a=new Uint8Array(buf);for(var i=0;i<a.length;i++)s+=String.fromCharCode(a[i]);return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+function unb64u(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';var b=atob(s),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a}
+function key(pw){return crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveKey']).then(function(k){return crypto.subtle.deriveKey({name:'PBKDF2',salt:enc.encode(SALT),iterations:100000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])})}
+function gz(u8){if(!window.CompressionStream)return Promise.resolve([0,u8]);return new Response(new Blob([u8]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer().then(function(b){return[1,new Uint8Array(b)]})}
+function gunz(u8){return new Response(new Blob([u8]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer().then(function(b){return new Uint8Array(b)})}
+function seal(obj,pw){return Promise.all([gz(enc.encode(JSON.stringify(obj))),key(pw)]).then(function(r){var iv=crypto.getRandomValues(new Uint8Array(12));return crypto.subtle.encrypt({name:'AES-GCM',iv:iv},r[1],r[0][1]).then(function(ct){var o=new Uint8Array(13+ct.byteLength);o[0]=r[0][0];o.set(iv,1);o.set(new Uint8Array(ct),13);return b64u(o)})})}
+function unseal(str,pw){var u=unb64u(str),f=u[0],iv=u.slice(1,13),ct=u.slice(13);return key(pw).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:iv},k,ct)}).then(function(b){var a=new Uint8Array(b);return f?gunz(a):a}).then(function(a){return JSON.parse(dec.decode(a))})}
+function sha(pw){return crypto.subtle.digest('SHA-256',enc.encode('chk|'+SALT+'|'+pw)).then(function(b){return b64u(b)})}
+function norm(s){return s.trim().replace(/\s+/g,'').toLowerCase()}
+var H={'Content-Type':'application/json','Accept':'application/json'};
+function bget(id){return fetch(API+'/'+id,{headers:{'Accept':'application/json'}}).then(function(r){if(!r.ok)throw 0;return r.json()})}
+function bput(id,o){return fetch(API+'/'+id,{method:'PUT',headers:H,body:JSON.stringify(o)}).then(function(r){if(!r.ok)throw 0;return r.json()})}
+function bnew(o){return fetch(API,{method:'POST',headers:H,body:JSON.stringify(o)}).then(function(r){var l=r.headers.get('Location');if(!r.ok||!l)throw 0;return l.split('/').pop()})}
+function fly(list,n){if(rm)return;for(var i=0;i<n;i++){var s=document.createElement('span');s.className='fl';s.textContent=list[i%list.length];s.style.left=(Math.random()*92)+'%';s.style.animationDelay=(Math.random()*.8)+'s';document.body.appendChild(s);setTimeout(function(x){x.remove()},4500,s)}}
+var tt=0;function toast(m){var t=$('nt');t.textContent=m;t.hidden=false;clearTimeout(tt);tt=setTimeout(function(){t.hidden=true},5000)}
+function bad(m){wrong++;$('er').textContent=m||(wrong>1?'تلميح: كلمة وحدة بنقولها لبعض 💞':'كلمة السر مش صح 🙈');var c=$('cv');c.classList.remove('shake');void c.offsetWidth;c.classList.add('shake');if(navigator.vibrate)try{navigator.vibrate(120)}catch(e){}}
+function fmt(ts){var d=new Date(ts);return ar(p2(d.getDate()))+'/'+ar(p2(d.getMonth()+1))+'/'+ar(d.getFullYear())+' · '+ar(p2(d.getHours()))+':'+ar(p2(d.getMinutes()))}
+function here(){S.pres[S.uid]={a:S.me,ts:Date.now()}}
+function merge(d){var n=0,who='';if(!d)return 0;var have={};S.entries.forEach(function(x){have[x.id]=1});
+ (d.e||[]).forEach(function(x){if(x&&typeof x.id==='string'&&typeof x.tx==='string'&&!have[x.id]){var e={id:x.id.slice(0,40),u:String(x.u||'').slice(0,12),a:String(x.a||'').slice(0,20),ty:TY[x.ty]?x.ty:'m',tx:x.tx.slice(0,600),ts:+x.ts||Date.now()};S.entries.push(e);have[e.id]=1;NEW[e.id]=1;if(e.u!==S.uid){n++;who=e.a||who}}});
+ var p=d.p||{};Object.keys(p).forEach(function(u){var v=p[u];if(v&&+v.ts&&(!S.pres[u]||+v.ts>S.pres[u].ts))S.pres[u]={a:String(v.a||'').slice(0,20),ts:+v.ts}});
+ save();if(n)toast('وصلك '+ar(n)+' ملاحظة جديدة'+(who?' من '+who:'')+' 💞');return n}
+function setSt(ok){$('st').textContent=ok?'🟢 متزامنة · آخر تحديث '+fmt(Date.now()).split(' · ')[1]:'🔴 ما في اتصال بالسيرفر. ملاحظاتك محفوظة عندك وبتتزامن لما يرجع الاتصال';$('jn').hidden=!S.bid}
+function sync(){if(!PW||busy)return Promise.resolve();busy=1;
+ var go=S.bid?bget(S.bid).then(function(b){return b&&b.c?unseal(b.c,PW).catch(function(){throw'pw'}):null}):Promise.resolve(null);
+ return go.then(function(d){var n=merge(d);if(n)render();here();save();renderPres();return seal({e:S.entries,p:S.pres},PW)}).then(function(c){return S.bid?bput(S.bid,{c:c}):bnew({c:c}).then(function(id){S.bid=id;save()})}).then(function(){setSt(true)},function(){setSt(false)}).then(function(){busy=0})}
+function openBook(){$('cv').classList.add('open');fly(['💞','✨','💛'],16);if(INC||INB){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}INC='';INB=''}
+ setTimeout(function(){$('cv').hidden=true;$('dv').hidden=false;if(!S.me)$('nm').hidden=false;render();renderPres();window.scrollTo(0,0);sync();setInterval(function(){if(!document.hidden)sync()},20000);document.addEventListener('visibilitychange',function(){if(!document.hidden)sync()})},rm?100:950)}
+$('fm').addEventListener('submit',function(e){e.preventDefault();var pw=norm($('pw').value);if(!pw)return;
+ if(!window.crypto||!crypto.subtle){$('er').textContent='افتحي الصفحة من رابط https عشان تشتغل';return}
+ sha(pw).then(function(h){
+  if(S.chk&&S.chk!==h){bad();return}
+  var job=Promise.resolve({});
+  if(INB&&INB!==S.bid)job=bget(INB).then(function(b){return unseal(b.c,pw)}).then(function(d){return{d:d,bid:INB}},function(){return{fail:1}});
+  else if(INC)job=unseal(INC,pw).then(function(d){return{d:d}},function(){return{fail:1}});
+  return job.then(function(r){
+   if(r.fail){bad(INB?'كلمة السر مش صح، أو ما قدرنا نتصل بالمذكرة 🙈':'');return}
+   if(!S.chk){S.chk=h;if(!INB&&!INC&&!S.entries.length)toast('تم حفظ كلمة السر. الي بيعرفها بس بيفتح المذكرة 🔑')}
+   if(r.bid)S.bid=r.bid;PW=pw;if(r.d)merge(r.d);here();save();openBook()})})});
+$('ht').addEventListener('click',function(){$('er').textContent='تلميح: كلمة وحدة بنقولها لبعض 💞'});
+var ch=document.querySelector('.chips');Object.keys(TY).forEach(function(k){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=TY[k];b.setAttribute('aria-pressed',k===ty);
+ b.addEventListener('click',function(){ty=k;[].forEach.call(ch.children,function(x){x.setAttribute('aria-pressed',x===b)})});ch.appendChild(b)});
+var PR=['شو أول شي لاحظته فيني؟','أحلى ضحكة ضحكناها سوا؟','شو أمنيتك لنا هالسنة؟','شو أكلة بتذكرك فينا؟','شو شي صغير بعمله بيفرحك؟','أغنية بتذكرك فيّ؟','وين بدك نروح لو معنا يوم فاضي؟','شو شي بحبه فيك وما قلتلك ياه؟'];
+$('qs').addEventListener('click',function(){var t=$('tx');t.placeholder=PR[Math.floor(Math.random()*PR.length)];t.focus()});
+$('add').addEventListener('click',function(){var t=$('tx').value.trim();if(!t){toast('اكتب شي أول 😄');return}
+ if(!S.me){var n=$('nm').value.trim();if(!n){toast('اكتب اسمك أول');$('nm').focus();return}S.me=n.slice(0,20);$('nm').hidden=true}
+ S.entries.push({id:S.uid+'-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),u:S.uid,a:S.me,ty:ty,tx:t.slice(0,600),ts:Date.now()});here();save();$('tx').value='';$('tx').placeholder='اكتب ذكرى، أمنية، شي بيخصنا…';render();fly(['💗'],5);toast('انضافت للمذكرة 💞');sync()});
+function render(){var f=$('fd');f.innerHTML='';var es=S.entries.slice().sort(function(a,b){return b.ts-a.ts});
+ if(!es.length){var e=document.createElement('p');e.className='emp';e.textContent='لسا فاضية… اكتب أول ذكرى 💞';f.appendChild(e)}
+ es.forEach(function(x){var mine=x.u===S.uid,a=document.createElement('article');a.className='en'+(mine?'':' his');
+  var h=document.createElement('div');h.className='eh';var w=document.createElement('b');w.textContent=mine?'أنا':(x.a||'الطرف التاني');var t=document.createElement('span');t.textContent=TY[x.ty];var d=document.createElement('small');d.textContent=fmt(x.ts);
+  h.appendChild(w);h.appendChild(t);if(NEW[x.id]&&!mine){var nb=document.createElement('span');nb.className='nw';nb.textContent='جديد ✨';h.appendChild(nb)}h.appendChild(d);
+  var p=document.createElement('p');p.textContent=x.tx;a.appendChild(h);a.appendChild(p);f.appendChild(a)});
+ var m=S.entries.filter(function(x){return x.u===S.uid}).length;$('cnt').textContent='أنا: '+ar(m)+' · الطرف التاني: '+ar(S.entries.length-m)}
+function renderPres(){var o=Object.keys(S.pres).filter(function(u){return u!==S.uid}).map(function(u){return S.pres[u]}).sort(function(a,b){return b.ts-a.ts})[0];$('pr').textContent=o?'آخر دخول لـ '+(o.a||'الطرف التاني')+': '+fmt(o.ts):''}
+function shareLink(url,text,done){var data={title:'مذكرتنا 💌',text:text,url:url};if(navigator.share){navigator.share(data).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){toast(done)},function(){toast('ما قدرنا ننسخ الرابط')})}}
+$('jn').addEventListener('click',function(){if(!S.bid)return;shareLink(location.origin+location.pathname+location.search+'#b='+S.bid,'انضم لمذكرتنا 💌 (مرة وحدة بس، وبعدها بتفتحها من الرابط العادي)','اننسخ رابط الانضمام، ابعته بالمحادثة')});
+$('sd').addEventListener('click',function(){if(!S.entries.length){toast('اكتب شي أول عشان تبعته');return}
+ seal({e:S.entries,p:S.pres},PW).then(function(b){shareLink(location.origin+location.pathname+location.search+'#d='+b,'نسخة من مذكرتنا… كلمة السر بتعرفها 😉','اننسخ الرابط، ابعته بالمحادثة')})});
+})();
+</script></body></html>
